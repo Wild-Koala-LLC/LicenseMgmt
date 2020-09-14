@@ -7,7 +7,14 @@ def index(request):
 	machine_list = Machine.objects.order_by('serial_number')
 	license_list = License.objects.order_by('-pub_date')
 	context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
-	return render(request, 'assigned_licenses.html', context)
+	return render(request, 'assigned.html', context)
+
+def assign_licenses(request):
+	soldier_list = Soldier.objects.order_by('name')
+	machine_list = Machine.objects.order_by('serial_number')
+	license_list = License.objects.order_by('-pub_date')
+	context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
+	return render(request, 'assign_licenses.html', context)
 
 def everything(request):
 	soldier_list = Soldier.objects.order_by('name')
@@ -15,10 +22,3 @@ def everything(request):
 	license_list = License.objects.order_by('-pub_date')
 	context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
 	return render(request, 'list_everything.html', context)
-
-
-'''
-def detail(request, question_id):
-	license = get_object_or_404(License, pk=license_id)
-	return render(request, 'license.html', {'license':license})
-'''
