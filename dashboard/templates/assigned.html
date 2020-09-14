@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
-{% load static %} <!-- For some reason I can't load my own css rn?? -->
-
-<link rel="stylesheet" type="text/css" href="{% static 'dashboard/twiggy_style.css'%}"
-
 {% block content %}
+
+{% load static %} 
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/twiggy_style.css' %}">
 
 <div class="container">
   <div class="row">
-    <div class="col twiggy-column">Soldier Assigned</div>
-    <div class="col" style="text-align: center;">Machine</div>
-    <div class="col" style="text-align: center;">License</div>
+    <div class="col center">Soldier Assigned</div>
+    <div class="col center">Machine</div>
+    <div class="col center">License</div>
   </div>
 </div>
 
