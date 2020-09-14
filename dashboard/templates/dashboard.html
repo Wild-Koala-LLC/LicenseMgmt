@@ -44,13 +44,36 @@
     <div class="row">
       <div class="col-4 twiggy-column" style="text-align: center;"> <!-- For some reason I can't load my own css rn?? I'm hacking it. -->
         Soldier
+        {% for soldier in soldier_list %}
+          <div>
+            <p>{{ soldier.name }}</p>
+          </div>
+        {% endfor %}
       </div>
+
+      
+
+      
+
       <div class="col-4 twiggy-column" style="text-align: center;">
         Machine
+        {% for machine in machine_list %}
+        <div>
+          <p>{{ machine.serial_number }}</p>
+        </div>
+      {% endfor %}
       </div>
+
+
       <div class="col-4 twiggy-column" style="text-align: center;">
         License
+        {% for license in license_list %}
+        <div>
+          <p>{{ license.name }}</p>
+        </div>
+        {% endfor %}
       </div>
+
     </div>
   </div>
 
