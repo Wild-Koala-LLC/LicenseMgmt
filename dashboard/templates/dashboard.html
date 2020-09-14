@@ -1,7 +1,8 @@
 {% load bootstrap4 %}
 
-
 {% bootstrap_css %}
+{% load static %} <!-- For some reason I can't load my own css rn?? -->
+
 {% bootstrap_javascript jquery='full' %}
 
 {% bootstrap_messages %}
@@ -16,27 +17,46 @@
   <meta name="description" content="Nifty Gabriel Nimbus App">
   <meta name="author" content="Thomas Finn and Grayson Gordon">
 
-  <link rel="stylesheet" href="idk">
-
 </head>
 
 <body>
 
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#">License Manager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Licenses Overview<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Assign Licenses</a>
-      <a class="nav-item nav-link" href="#">View Assigned Licenses</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled Example</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Licenses Overview<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">Assign Licenses</a>
+        <a class="nav-item nav-link" href="#">View Assigned Licenses</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled Example</a>
+      </div>
     </div>
-  </div>
+
   </nav>
 
-  <script src="js/idk.js"></script>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 twiggy-column" style="text-align: center;"> <!-- For some reason I can't load my own css rn?? I'm hacking it. -->
+        Soldier
+      </div>
+      <div class="col-4 twiggy-column" style="text-align: center;">
+        Machine
+      </div>
+      <div class="col-4 twiggy-column" style="text-align: center;">
+        License
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <script src="js/idk.js"></script> -->
+  <!-- We can include chart.js to make pretty plots -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 </body>
 </html>
