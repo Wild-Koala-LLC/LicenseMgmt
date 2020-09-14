@@ -1,6 +1,13 @@
 from django.db import models
 
-# Create your models here.
+class Soldier(models.Model):
+	name = models.CharField(max_length=200)
+	email = models.CharField(max_length=200)
+
+class Machine(models.Model):
+	serial_number = models.CharField(max_length=200)
+	assigned_to = models.ForeignKey(Soldier, on_delete=models.CASCADE, null=True)
+	
 
 class License(models.Model):
 	name = models.CharField(max_length=200)
@@ -9,4 +16,6 @@ class License(models.Model):
 	start_date = models.DateTimeField('start date')
 	end_date = models.DateTimeField('end date')
 	licenses_remaining = models.IntegerField()
+	on_machine = models.ForeignKey(Machine, on_delete=models.CASCADE, null=True)
+
 	
