@@ -1,3 +1,11 @@
+{% load bootstrap4 %}
+
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
 <!doctype html>
 
 <html lang="en">
@@ -12,8 +20,23 @@
 
 </head>
 
-<h1>Howdy Thomas</h1>
 <body>
+
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">License Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Licenses Overview<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Assign Licenses</a>
+      <a class="nav-item nav-link" href="#">View Assigned Licenses</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled Example</a>
+    </div>
+  </div>
+  </nav>
+
   <script src="js/idk.js"></script>
 </body>
 </html>
