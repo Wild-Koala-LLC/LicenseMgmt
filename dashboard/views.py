@@ -7,14 +7,14 @@ def index(request):
 	machine_list = Machine.objects.order_by('serial_number')
 	license_list = License.objects.order_by('-pub_date')
 	context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
-	return render(request, 'dashboard.html', context)
+	return render(request, 'assigned_licenses.html', context)
 
-def test(request):
+def everything(request):
 	soldier_list = Soldier.objects.order_by('name')
 	machine_list = Machine.objects.order_by('serial_number')
 	license_list = License.objects.order_by('-pub_date')
 	context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
-	return render(request, 'dashboard2.html', context)
+	return render(request, 'list_everything.html', context)
 
 
 '''
