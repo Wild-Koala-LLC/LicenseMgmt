@@ -16,6 +16,10 @@ def assign_licenses(request):
 	context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
 	return render(request, 'assign_licenses.html', context)
 
+def remaining(request):
+	context = {}
+	return render(request, 'remaining.html', context)
+
 def everything(request):
 	soldier_list = Soldier.objects.order_by('name')
 	machine_list = Machine.objects.order_by('serial_number')

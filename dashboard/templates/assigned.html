@@ -2,7 +2,17 @@
 
 {% load static %} <!-- For some reason I can't load my own css rn?? -->
 
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/twiggy_style.css'%}"
+
 {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col twiggy-column">Soldier Assigned</div>
+    <div class="col" style="text-align: center;">Machine</div>
+    <div class="col" style="text-align: center;">License</div>
+  </div>
+</div>
 
 <div class="container">
 
