@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %} 
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/twiggy_style.css' %}">
+
+<div class="container">
+  <div class="row">
+    <div class="col center">Soldier Assigned</div>
+    <div class="col center">Machine</div>
+    <div class="col center">License</div>
+  </div>
+</div>
+
+<div class="container">
+
+  {% for license in license_list %}
+    {% if license.on_machine %}
+      <div class="row">
+        {% if license.on_machine.assigned_to %}
+            <div class="col" style="text-align: center;">{{ license.on_machine.assigned_to }}</div>
+        {% else %}
+            <div class="col" style="text-align: center;">Not Assigned</div>
+        {% endif %}
+
+        <div class="col" style="text-align: center;">{{ license.on_machine }}</div>
+        <div class="col" style="text-align: center;">{{ license.name }}</div>
+      </div>
+      {% endif %}
+  {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+
+
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>License Manager</title>
+  <meta name="description" content="Nifty Gabriel Nimbus App">
+  <meta name="author" content="Thomas Finn and Grayson Gordon">
+
+</head>
+
+<body>
+
+<!-- My Navbar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">License Manager</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/">Licenses Overview</a>
+        <a class="nav-item nav-link" href="assign_licenses">Assign Licenses</a>
+        <a class="nav-item nav-link" href="remaining">View Remaining Licenses</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      </div>
+    </div>
+
+  </nav>
+
+<!-- Take the content from the webpage and put it in this block. -->
+{% block content %}{% endblock %}
+
+
+
+  <!-- <script src="js/idk.js"></script> -->
+  <!-- We can include chart.js to make pretty plots -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</body>
+</html>
