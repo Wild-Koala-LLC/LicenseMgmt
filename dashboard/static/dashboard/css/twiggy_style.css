@@ -13,3 +13,12 @@
 .thirds {
     width: 33%;
 }
+
+.visuals-container {
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+.two-visuals {
+    width: 50%;
+}

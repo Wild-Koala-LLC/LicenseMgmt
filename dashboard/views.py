@@ -41,7 +41,7 @@ def pie_chart(request):
     in_use = total_cool_licenses - not_in_use
 
 
-    labels = ['In Use', 'Available']
-    data = [in_use, not_in_use]
+    labels = ['Available', 'In Use']
+    data = [not_in_use, in_use]
     context = {'labels':labels, 'data':data}
     return render(request, 'pie_chart.html', context)
