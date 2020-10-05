@@ -8,11 +8,7 @@
 <div class="visuals-container">
 
   <div id="container" class="visual">
-    <canvas id="pie-chart"></canvas>
-  </div>
-
-  <div id="container" class="visual">
-    <canvas id="bar-chart"></canvas>
+    <canvas id="pie-chart1"></canvas>
   </div>
 
   <div id="container" class="visual">
@@ -29,6 +25,18 @@
 
   <div id="container" class="visual">
     <canvas id="pie-chart5"></canvas>
+  </div>
+
+  <div id="container" class="visual">
+    <canvas id="pie-chart6"></canvas>
+  </div>
+
+  <div id="container" class="visual">
+    <canvas id="pie-chart7"></canvas>
+  </div>
+
+  <div id="container" class="visual">
+    <canvas id="pie-chart8"></canvas>
   </div>
 
 </div>
@@ -81,6 +89,12 @@
 
       var ctx6 = document.getElementById('pie-chart6').getContext('2d');
       window.myPie = new Chart(ctx6, pie_config);
+
+      var ctx7 = document.getElementById('pie-chart7').getContext('2d');
+      window.myPie = new Chart(ctx7, pie_config);
+
+      var ctx8 = document.getElementById('pie-chart8').getContext('2d');
+      window.myPie = new Chart(ctx8, pie_config);
     };
 
   </script>
