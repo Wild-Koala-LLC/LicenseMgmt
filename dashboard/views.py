@@ -11,30 +11,24 @@ def index(request):
     # total number of licenses who's value for "on_machine" is None
     not_in_use = License.objects.filter(
         name="Cool License",
-        on_machine = None, # hopefully it's not the string "None"
+        on_machine = None,
     ).count()
 
     in_use = total_cool_licenses - not_in_use
-
 
     labels = ['Available', 'In Use']
     data = [not_in_use, in_use]
     context = {'labels':labels, 'data':data}
     return render(request, 'pie_chart.html', context)
 
-def remaining(request):
+def assigned(request):
     soldier_list = Soldier.objects.order_by('name')
     machine_list = Machine.objects.order_by('serial_number')
     license_list = License.objects.order_by('-pub_date')
     context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
     return render(request, 'assigned.html', context)
 
-def assign_licenses(request):
-    soldier_list = Soldier.objects.order_by('name')
-    machine_list = Machine.objects.order_by('serial_number')
-    license_list = License.objects.order_by('-pub_date')
-    context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
-    return render(request, 'assign_licenses.html', context)
+
 
 
 
