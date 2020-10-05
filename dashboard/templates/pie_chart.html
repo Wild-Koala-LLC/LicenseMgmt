@@ -7,11 +7,11 @@
 {# Create the places with the content will be rendered #}
 <div class="visuals-container">
 
-  <div id="container" class="two-visuals">
+  <div id="container" class="visual">
     <canvas id="pie-chart"></canvas>
   </div>
 
-  <div id="container" class="two-visuals">
+  <div id="container" class="visual">
     <canvas id="pie-chart2"></canvas>
   </div>
 
@@ -42,7 +42,7 @@
     };
 
     var config2 = {
-      type: 'pie',
+      type: 'horizontalBar',
       data: {
         datasets: [{
           data: {{ data|safe }},
@@ -55,6 +55,14 @@
         labels: {{ labels|safe }}
       },
       options: {
+        scales: {
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }]
+        },
         responsive: true
       }
     };
