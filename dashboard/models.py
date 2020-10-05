@@ -20,9 +20,8 @@ class License(models.Model):
 	pub_date = models.DateTimeField('date added')
 	start_date = models.DateTimeField('start date')
 	end_date = models.DateTimeField('end date')
-	licenses_remaining = models.IntegerField()
 	on_machine = models.ForeignKey(Machine, on_delete=models.CASCADE, null=True, blank=True)
 
 	def __str__(self):
-		return self.name
+		return self.name + "(" + self.key + ")"
 	
