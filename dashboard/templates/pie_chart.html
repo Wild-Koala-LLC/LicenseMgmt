@@ -12,7 +12,7 @@
   </div>
 
   <div id="container" class="visual">
-    <canvas id="pie-chart2"></canvas>
+    <canvas id="bar-chart"></canvas>
   </div>
 
 </div>
@@ -23,7 +23,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script>
 
-    var config = {
+    var pie_config = {
       type: 'pie',
       data: {
         datasets: [{
@@ -41,7 +41,7 @@
       }
     };
 
-    var config2 = {
+    var bar_config = {
       type: 'horizontalBar',
       data: {
         datasets: [{
@@ -69,10 +69,10 @@
 
     window.onload = function() {
       var ctx = document.getElementById('pie-chart').getContext('2d');
-      window.myPie = new Chart(ctx, config);
+      window.myPie = new Chart(ctx, pie_config);
 
-      var ctx2 = document.getElementById('pie-chart2').getContext('2d');
-      window.myPie = new Chart(ctx2, config2);
+      var ctx2 = document.getElementById('bar-chart').getContext('2d');
+      window.myPie = new Chart(ctx2, bar_config);
     };
 
   </script>
