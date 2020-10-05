@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{# Create the place with the content will be rendered #}
   <div id="container" style="width: 75%;">
     <canvas id="pie-chart"></canvas>
   </div>
 
+
+{# Pull in chart.js and our data to inform it. #}
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script>
 

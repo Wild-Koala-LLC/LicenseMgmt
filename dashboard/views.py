@@ -33,12 +33,12 @@ def pie_chart(request):
     total_cool_licenses = License.objects.filter(name="Cool License").count()
 
     # total number of licenses who's value for "on_machine" is None
-    in_use = License.objects.filter(
+    not_in_use = License.objects.filter(
         name="Cool License",
         on_machine = None, # hopefully it's not the string "None"
     ).count()
 
-    not_in_use = total_cool_licenses - in_use
+    in_use = total_cool_licenses - not_in_use
 
 
     labels = ['In Use', 'Available']

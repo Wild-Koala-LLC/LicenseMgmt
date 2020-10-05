@@ -75,11 +75,14 @@ WSGI_APPLICATION = 'licensemgmt.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+# added the str() here around "BASE_DIR / 'db.sqlite3'", path was a POSIX Path
+# https://forum.djangoproject.com/t/django-tutorial-python-manage-py-startapp-polls-fails/2718/3
+# it worked for migrating, but it cause /admin to break
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3', 
     }
 }
 

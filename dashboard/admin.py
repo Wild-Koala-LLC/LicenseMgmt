@@ -13,6 +13,6 @@ class MachineAdmin(admin.ModelAdmin):
 admin.site.register(Machine, MachineAdmin)
 
 class LicenseAdmin(admin.ModelAdmin):
-    fields = ['name', 'key', 'pub_date', 'start_date', 'end_date', 'licenses_remaining', 'on_machine']
+    fields = ['name', 'key', 'pub_date', 'start_date', 'end_date', 'on_machine']
 admin.site.register(License,LicenseAdmin)
 
