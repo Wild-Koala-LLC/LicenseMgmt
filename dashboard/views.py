@@ -2,22 +2,23 @@ from django.shortcuts import render, get_object_or_404
 
 from .models import License, Soldier, Machine
 
+from .helper_funcs import *
+
+
+
 
 # User Chart.js to make a pie chart with % of a type of license used vs. Not used
 def index(request):
-    # total number of licenses
-    total_cool_licenses = License.objects.filter(name="Cool License").count()
-
-    # total number of licenses who's value for "on_machine" is None
-    not_in_use = License.objects.filter(
-        name="Cool License",
-        on_machine = None,
-    ).count()
-
-    in_use = total_cool_licenses - not_in_use
+    
+    unique = get_unique_licenses()
+    results = get_used_and_unused(unique) 
+    print(results) #It works!
+    # I'm getting back a dictionary in this format
+    # str(name) : list[int used, int available]
+    
 
     labels = ['Available', 'In Use']
-    data = [not_in_use, in_use]
+    data = results['Cool License']
     context = {'labels':labels, 'data':data}
     return render(request, 'pie_chart.html', context)
 
