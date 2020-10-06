@@ -1,10 +1,23 @@
 {% extends "base.html" %}
 
-{% load static %} <!-- For some reason I can't load my own css rn?? -->
-
 {% block content %}
+{% load static %} 
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/twiggy_style.css' %}">
 
-What's the point of this? Just go to the admin page and make your stuff...
-type "localhost:8000/admin" in the browser and log in.
+<div class="twiggy-form">
+    <div class="form-group">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <div class="container">
+                <button type="submit" class="btn btn-primary form-button">Submit</button>
+            </div>
+        </form>
+    </div>    
+</div>
+
+
+
+
 
 {% endblock %}
