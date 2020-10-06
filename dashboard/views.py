@@ -12,9 +12,7 @@ def index(request):
     
     unique = get_unique_licenses()
     license_dict = get_used_and_unused(unique) 
-    print(license_dict) #It works!
-    for key, val in license_dict.items():
-        print(key, val)
+    print(license_dict) 
     # I'm getting back a dictionary in this format
     # str(name) : list[int available, int used]
     
@@ -32,7 +30,16 @@ def assigned(request):
     context = {'soldier_list':soldier_list, 'machine_list':machine_list, 'license_list':license_list}
     return render(request, 'assigned.html', context)
 
+def assign_licenses(request):
+    unique_names = get_unique_licenses()
+    print("TESTTT ==================================================================")
+    print(unique_names)
+    context = {'unique_names':unique_names}
+    return render(request, 'assign_licenses.html', context)
 
 
+def license_details(request):
+    context = {}
+    return render(request, 'license_details.html', context)
 
 

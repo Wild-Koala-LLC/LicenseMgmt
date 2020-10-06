@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %} 
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/twiggy_style.css' %}">
+
+<div class="my-form">
+    <form>
+
+        <div class="form-group">
+          <label for="LicenseMangementUser">Username*</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Username">
+        </div>
+
+        <div class="form-group">
+          <label for="LicenseMangementPassword">Password*</label>
+          <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password">
+        </div>
+
+        <div class="form-group dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              License to Add*
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% for name in unique_names%}
+                    <a class="dropdown-item" href="#">{{ name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="LicenseMangementKey">License Key*</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="License Key">
+        </div>
+
+        <div class="form-group">
+            <label for="LicenseMangementKey">Start Date*</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Start Date">
+        </div>
+
+        <div class="form-group">
+            <label for="LicenseMangementKey">End Date*</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="End Date">
+        </div>
+
+        <div class="form-group">
+            <label for="LicenseMangementKey">Assign To Machine</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Serial Number">
+        </div>
+        
+    </form>
+</div>
+
+{% endblock %}
