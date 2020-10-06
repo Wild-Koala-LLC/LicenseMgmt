@@ -25,8 +25,10 @@ def get_used_and_unused(license_names): # license_names is a list of strings.
         on_machine = None,
         ).count()
 
+        new_list.append(not_in_use)
+        
         used = total_num - not_in_use
         new_list.append(used)
-        new_list.append(not_in_use)
+        
         results[licen] = new_list
     return results
