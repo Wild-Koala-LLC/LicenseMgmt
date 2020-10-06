@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'dashboard.apps.DashboardConfig',
     'bootstrap4', # added this so we can use bootstrap for skiddie-level GUI making
+    #'crispy_forms', # Why can't I import this??
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

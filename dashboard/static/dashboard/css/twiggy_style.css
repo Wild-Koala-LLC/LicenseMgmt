@@ -38,7 +38,27 @@
     flex-wrap: wrap;
 }
 
-form {
+
+.twiggy-form {
+    width: 100%;
+    margin: auto;
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form-group {
     width: 50%;
 }
 
+.container .form-button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2em;
+}
+
+label {
+    padding-top: 2em;
+}
