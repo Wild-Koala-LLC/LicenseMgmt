@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
 
 from .models import License, Soldier, Machine
 
 from .helper_funcs import *
+
+from .forms import NameForm
 
 
 
@@ -31,11 +34,22 @@ def assigned(request):
     return render(request, 'assigned.html', context)
 
 def assign_licenses(request):
-    unique_names = get_unique_licenses()
-    print("TESTTT ==================================================================")
-    print(unique_names)
-    context = {'unique_names':unique_names}
-    return render(request, 'assign_licenses.html', context)
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            print("GOOD FORM CAME THRU======================================================")
+            return HttpResponseRedirect('/license_details')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        unique_names = get_unique_licenses()
+        current_user = "Your Name Here!"
+        form = NameForm()
+        context = {'unique_names':unique_names, 'current_user':current_user, 'form':form}
+        return render(request, 'assign_licenses.html', context)
 
 
 def license_details(request):

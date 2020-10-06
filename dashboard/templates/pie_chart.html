@@ -9,10 +9,11 @@
 <div class="visuals-container"> 
 
   {% for license_name in license_dict %}
-
-    <div id="container" class="visual">
-      <canvas id="pie-chart{{ forloop.counter }}"></canvas>
-    </div>
+    
+      <div id="container" class="visual">
+        <canvas id="pie-chart{{ forloop.counter }}"></canvas>
+      </div>
+    
   
   {% endfor %}
 </div>
@@ -77,10 +78,25 @@
       {% endfor %}
       
 
-      // var ctx1 = document.getElementById('pie-chart1').getContext('2d');
-      // window.myPie = new Chart(ctx1, pie_config); 
+      window.onclick = function(e) {
+        var slice = myPie.getElementsAtEvent(e);
+        var i;
+        for (i=0; i<2; i++) {
+          console.log(slice[i]);
+        }
+        if (!slice.length) return; // return if not clicked on slice
+        // alert("Click Detected On A Slice"); // this is working!
+        var label = slice[0]._model.label;
+        alert(label);
+      }
+      
     };
 
   </script>
+<div class="center">
+  <a href="/assign_licenses">
+    <button type="button" class="btn btn-success add-more" style="margin-top:3em;">Add More</button>
+  </a>
+</div>
 
 {% endblock %}

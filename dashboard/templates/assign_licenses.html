@@ -48,6 +48,13 @@
             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Serial Number">
         </div>
         
+
+    </form>
+
+    <form action="/assign_licenses" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
     </form>
 </div>
 
