@@ -5,7 +5,7 @@ from .models import License, Soldier, Machine
 
 from .helper_funcs import *
 
-from .forms import NameForm
+from .forms import NameForm, TestForm, LicenseForm
 
 
 
@@ -57,3 +57,16 @@ def license_details(request):
     return render(request, 'license_details.html', context)
 
 
+
+
+def form_test(request):
+
+    if request.method == 'POST':
+        form = LicenseForm(request.POST)
+        if form.is_valid():
+            print("GOT VALID LICENSE!==============================================")
+            form.save()
+
+    form = LicenseForm()
+    context = {'form':form}
+    return render(request, 'form_test.html', context)
