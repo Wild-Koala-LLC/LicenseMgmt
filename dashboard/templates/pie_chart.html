@@ -7,6 +7,7 @@
 {# Create the places with the content will be rendered #}
 {# forloop.counter is 1 indexed. There should be two charts now. #}
 <div class="visuals-container"> 
+
   {% for license_name in license_dict %}
 
     <div id="container" class="visual">
@@ -22,11 +23,33 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script>
 
+    var pie_config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: [1,3],
+          backgroundColor: [ 
+            '#17BACA', 
+            '#CA2717',
+          ],
+          label: 'Cool Licenses'
+        }],
+        labels: ['Available', 'In Use']
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Cool Licenses'
+        },
+        responsive: true
+      }
+    };
+
     window.onload = function() {
-      {# You don't need () to call methods in templates!! #}
+
       {% for key, value in license_dict.items %}
 
-        var pie_config = {
+        var pie_config{{ forloop.counter }} = {
           type: 'pie',
           data: {
             datasets: [{
@@ -35,24 +58,24 @@
                 '#17BACA', 
                 '#CA2717',
               ],
-              label: {{ key|safe }}
+              label: '{{ key|safe }}'
             }],
             labels: {{ labels|safe }}
           },
           options: {
             title: {
               display: true,
-              text: {{ license_name|safe }}
+              text: '{{ key|safe }}'
             },
             responsive: true
           }
         };
 
         var ctx{{ forloop.counter }} = document.getElementById('pie-chart{{ forloop.counter }}').getContext('2d'); // I have no idea if I can name variables like this.
-        window.myPie = new Chart(ctx{{ forloop.counter }}, pie_config); 
+        window.myPie = new Chart(ctx{{ forloop.counter }}, pie_config{{ forloop.counter }}); 
 
       {% endfor %}
-        }
+      
 
       // var ctx1 = document.getElementById('pie-chart1').getContext('2d');
       // window.myPie = new Chart(ctx1, pie_config); 
