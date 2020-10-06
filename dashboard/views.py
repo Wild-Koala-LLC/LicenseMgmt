@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 
 from .models import License, Soldier, Machine
 
@@ -36,37 +36,18 @@ def assigned(request):
 def assign_licenses(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = NameForm(request.POST)
-        # check whether it's valid:
+        form = LicenseForm(request.POST)
         if form.is_valid():
-            print("GOOD FORM CAME THRU======================================================")
-            return HttpResponseRedirect('/license_details')
+            print("GOT VALID LICENSE!==============================================")
+            form.save()
+            return redirect('/')
 
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        unique_names = get_unique_licenses()
-        current_user = "Your Name Here!"
-        form = NameForm()
-        context = {'unique_names':unique_names, 'current_user':current_user, 'form':form}
-        return render(request, 'assign_licenses.html', context)
+    form = LicenseForm()
+    context = {'form':form}
+    return render(request, 'assign_licenses.html', context)
 
 
 def license_details(request):
     context = {}
     return render(request, 'license_details.html', context)
 
-
-
-
-def form_test(request):
-
-    if request.method == 'POST':
-        form = LicenseForm(request.POST)
-        if form.is_valid():
-            print("GOT VALID LICENSE!==============================================")
-            form.save()
-
-    form = LicenseForm()
-    context = {'form':form}
-    return render(request, 'form_test.html', context)
