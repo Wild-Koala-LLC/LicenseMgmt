@@ -32,3 +32,9 @@ def get_used_and_unused(license_names): # license_names is a list of strings.
         
         results[licen] = new_list
     return results
+
+
+def classify_by_time(licenses):
+    green = []
+    amber = []
+    red =[]
