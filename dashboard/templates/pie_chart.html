@@ -9,11 +9,11 @@
 <div class="visuals-container"> 
 
   {% for license_name in license_dict %}
-    
+
       <div id="container" class="visual">
         <canvas id="pie-chart{{ forloop.counter }}"></canvas>
         <div class="center">
-          <a href="/license_details">
+          <a href="/license_details/{{ license_name }}">
             <button type="button" class="btn btn-primary details-button" style="margin-top: 1em;">Details</button> 
           </a>
         </div>

@@ -16,14 +16,16 @@ def index(request):
     unique = get_unique_licenses()
     license_dict = get_used_and_unused(unique) 
     print(license_dict) 
-    # I'm getting back a dictionary in this format
-    # str(name) : list[int available, int used]
-    
+
+    # get the urls to go to for details, have to have underscores instead of spaces.
+    good_urls = []
+    for thing in unique:
+        good_urls.append(thing.replace(" ", "_"))
+    print(good_urls)
 
     labels = ['Available', 'In Use']
-    #data = results['Cool License'] # when this is passed the current dash works
 
-    context = {'labels':labels, 'license_dict':license_dict}
+    context = {'labels':labels, 'license_dict':license_dict, 'good_urls':good_urls}
     return render(request, 'pie_chart.html', context)
 
 def assigned(request):
@@ -46,8 +48,12 @@ def assign_licenses(request):
     context = {'form':form}
     return render(request, 'assign_licenses.html', context)
 
-
-def license_details(request):
-    context = {}
+'''
+I want to get a webpage that shows me all the licenses
+With a title
+'''
+def license_details(request, wanted_license):
+    print(wanted_license)
+    context = {'wanted_license':wanted_license}
     return render(request, 'license_details.html', context)
 
