@@ -62,3 +62,15 @@
 label {
     padding-top: 2em;
 }
+
+.license-details-panel {
+    width: 90%;
+    margin: auto;
+    padding-top: 3em;
+}
+
+.license-details-title {
+    margin:auto; 
+    text-align: center; 
+    padding-bottom: 1em;
+}

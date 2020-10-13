@@ -53,7 +53,8 @@ I want to get a webpage that shows me all the licenses
 With a title
 '''
 def license_details(request, wanted_license):
-    print(wanted_license)
-    context = {'wanted_license':wanted_license}
+    #print(wanted_license)
+    licenses = License.objects.filter(name=wanted_license)
+    context = {'wanted_license':wanted_license,'licenses':licenses}
     return render(request, 'license_details.html', context)
 
