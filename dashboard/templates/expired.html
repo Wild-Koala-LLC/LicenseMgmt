@@ -21,7 +21,7 @@
   <tbody>
 
     {% for license in red %}
-    <tr style="background-color: red;">
+    <tr style="background-color: #D72525;">
       <td>{{ license.key }}</td>
       <td>{{ license.start_date }}</td>
       <td>{{ license.end_date }}</td>
@@ -34,7 +34,7 @@
     {% endfor %}
 
     {% for license in amber %}
-    <tr style="background-color: yellow; color: black;">
+    <tr style="background-color: #C4D815; color: black;">
       <td>{{ license.key }}</td>
       <td>{{ license.start_date }}</td>
       <td>{{ license.end_date }}</td>
@@ -47,7 +47,7 @@
     {% endfor %}
 
     {% for license in green %}
-    <tr style="background-color: green; color: black">
+    <tr style="background-color: #2EC00D; color: black">
       <td>{{ license.key }}</td>
       <td>{{ license.start_date }}</td>
       <td>{{ license.end_date }}</td>
