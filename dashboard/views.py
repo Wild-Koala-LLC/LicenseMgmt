@@ -50,13 +50,18 @@ def assign_licenses(request):
 
 def license_details(request, wanted_license):
     licenses = License.objects.filter(name=wanted_license)
-    context = {'wanted_license':wanted_license,'licenses':licenses}
+    green, amber, red = classify_by_time(licenses)
+    context = {'wanted_license':wanted_license, 'green':green, 'amber':amber, 'red':red}
     return render(request, 'license_details.html', context)
 
 
 def expiring(request):
     # this correctly orders the licenses.
     licenses = License.objects.order_by('end_date')
+
+    print("In epiring=======================================")
+    for l in licenses:
+        print(l)
 
     # want to return a list to each of these, so I can iterate over each with new style
     green, amber, red = classify_by_time(licenses)
