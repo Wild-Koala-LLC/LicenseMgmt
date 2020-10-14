@@ -64,3 +64,20 @@ def classify_by_time(licenses):
         
         
     return (green, amber, red)
+
+
+def get_row(obj):
+    row = []
+    for field in model_fields:
+        if type(field) == models.ForeignKey:
+            val = getattr(obj, field.name)
+            if val:
+                val = val.__unicode__()
+        elif type(field) == models.ManyToManyField:
+            val = u', '.join([item.__unicode__() for item in getattr(obj, field.name).all()])
+        elif field.choices:
+            val = getattr(obj, 'get_%s_display'%field.name)()
+        else:
+            val = getattr(obj, field.name)
+        row.append(unicode(val).encode("utf-8"))
+    return row

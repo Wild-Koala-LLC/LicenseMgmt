@@ -16,6 +16,9 @@
       <th scope="col">Start Date</th>
       <th scope="col">End Date</th>
       <th scope="col">Machine Assigned</th>
+      <th scope="col">Organization Assigned</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +33,9 @@
       {% else %}
         <td>Not Assigned</td>
       {% endif %}
+      <td>{{ license.on_machine }}</td>
+      <td><a href="/"><img src="{% static 'dashboard/img/pencil.png' %}" alt="Pencil"></a></td>
+      <td><a href="/"><img src="{% static 'dashboard/img/trash.png' %}" alt="Trash"></a></td>
     </tr>
     {% endfor %}
 
@@ -43,6 +49,7 @@
       {% else %}
         <td>Not Assigned</td>
       {% endif %}
+      <td>{{ license.on_machine }}</td>
     </tr>
     {% endfor %}
 
@@ -56,6 +63,7 @@
       {% else %}
         <td>Not Assigned</td>
       {% endif %}
+      <td>{{ license.on_machine }}</td>
     </tr>
     {% endfor %}
 

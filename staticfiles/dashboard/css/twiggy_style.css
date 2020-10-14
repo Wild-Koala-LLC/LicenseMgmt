@@ -1,7 +1,92 @@
-.twiggy-column {
-    text-align: center
+.floating-table {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    padding-top: 2em;
 }
 
-.test{
-    color: red;
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.thirds {
+    width: 33%;
+}
+
+.visuals-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.visual {
+    margin-top: 2em;
+    border: 1em;
+    border-radius: 25px;
+    border-color: '#17BACA';
+    width: 25%;
+}
+
+.my-form {
+    width: 90%;
+    margin: auto;
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.twiggy-form {
+    width: 100%;
+    margin: auto;
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    width: 50%;
+}
+
+.container .form-button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2em;
+}
+
+label {
+    padding-top: 2em;
+}
+
+.license-details-panel {
+    width: 90%;
+    margin: auto;
+    padding-top: 3em;
+}
+
+.license-details-title {
+    margin:auto; 
+    text-align: center; 
+    padding-bottom: 1em;
+}
+
+.expired-green {
+    background-color: green;
+}
+
+.expired-amber {
+    background-color: rgb(214, 211, 36);
+}
+
+.expired-red {
+    background-color: rgb(255, 8, 0);
+}
+
+.detail-assign {
+    text-align: center;
 }
