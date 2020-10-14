@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %} 
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/twiggy_style.css' %}">
+
+<div class="license-details-panel">
+
+    
+    <h1 class="license-details-title">Expiring Licenses</h1>
+
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Key</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Machine Assigned</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for license in red %}
+    <tr style="background-color: red;">
+      <td>{{ license.key }}</td>
+      <td>{{ license.start_date }}</td>
+      <td>{{ license.end_date }}</td>
+      {% if license.on_machine %}
+        <td>{{ license.on_machine }}</td>
+      {% else %}
+        <td>Not Assigned</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+
+    {% for license in amber %}
+    <tr style="background-color: yellow; color: black;">
+      <td>{{ license.key }}</td>
+      <td>{{ license.start_date }}</td>
+      <td>{{ license.end_date }}</td>
+      {% if license.on_machine %}
+        <td>{{ license.on_machine }}</td>
+      {% else %}
+        <td>Not Assigned</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+
+    {% for license in green %}
+    <tr style="background-color: green; color: black">
+      <td>{{ license.key }}</td>
+      <td>{{ license.start_date }}</td>
+      <td>{{ license.end_date }}</td>
+      {% if license.on_machine %}
+        <td>{{ license.on_machine }}</td>
+      {% else %}
+        <td>Not Assigned</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+</div>
+{% endblock %}

@@ -86,3 +86,7 @@ label {
 .expired-red {
     background-color: rgb(255, 8, 0);
 }
+
+.detail-assign {
+    text-align: center;
+}

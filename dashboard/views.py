@@ -1,13 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-from django.utils import timezone
+
 
 
 from .models import License, Soldier, Machine
 from .helper_funcs import *
 from .forms import NameForm, TestForm, LicenseForm
-
-import datetime
 
 
 
@@ -50,10 +48,6 @@ def assign_licenses(request):
     context = {'form':form}
     return render(request, 'assign_licenses.html', context)
 
-'''
-I want to get a webpage that shows me all the licenses
-With a title
-'''
 def license_details(request, wanted_license):
     licenses = License.objects.filter(name=wanted_license)
     context = {'wanted_license':wanted_license,'licenses':licenses}
@@ -61,25 +55,11 @@ def license_details(request, wanted_license):
 
 
 def expiring(request):
-    current_date_and_time = timezone.now()
-    print(current_date_and_time)
-
-    days_ahead = 120
-    hours_added = datetime.timedelta(hours = days_ahead*24)
-    future_date_and_time = current_date_and_time + hours_added
-    print(future_date_and_time)
-
     # this correctly orders the licenses.
     licenses = License.objects.order_by('end_date')
 
     # want to return a list to each of these, so I can iterate over each with new style
     green, amber, red = classify_by_time(licenses)
-
-    first_l = licenses.first()
-    if first_l.end_date > future_date_and_time:
-        print("The thing ends more than 120 days from now")
-    else:
-        print("This ends in less than 120 days!")
 
     context = {'green':green, 'amber':amber, 'red':red}
     return render(request, 'expired.html', context)
