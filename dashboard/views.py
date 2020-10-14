@@ -18,26 +18,10 @@ def csv_view(request):
     return response
 
 
-def some_view(request):
-    # Create the HttpResponse object with the appropriate CSV header.
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="LicenseManger.csv"'
-
-    with open('LicenseManger.csv', 'w') as csvfile:
-        writer = csv.writer(csvfile)
-
-        fields = License._meta.fields
-
-        # write your header first
-        for obj in License.objects.all():
-            row = ""
-            for field in fields:
-                print(type(getattr(obj, field.name)))
-                print(getattr(obj, field.name))
-                row += getattr(obj, str(field.name)) + ","
-            writer.writerow(row)
-
-        return response
+def delete(request,license_id=None):
+    to_delete = License.objects.get(id=license_id)
+    to_delete.delete()
+    return render(request,'/')
 
 # User Chart.js to make a pie chart with % of a type of license used vs. Not used
 def index(request):

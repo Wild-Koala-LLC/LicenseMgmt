@@ -7,7 +7,7 @@ urlpatterns = [
     path('assigned', views.assigned, name='assigned'),
     path('assign_licenses', views.assign_licenses, name='assign_licenses'),
     re_path(r'license_details/(?P<wanted_license>[\w|\W]+)', views.license_details, name='license_details'), 
-    path('expiring', views.expiring, name='expiring'), 
-    path('some_view', views.some_view, name='some_view'), 
+    path('expiring', views.expiring, name='expiring'),  
     path('csv_view', views.csv_view, name='csv_view'),
+    path('delete/<int:license_id>', views.delete, name='delete'),
 ]
