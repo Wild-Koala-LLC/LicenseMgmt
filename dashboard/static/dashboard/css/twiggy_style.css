@@ -17,12 +17,12 @@
 .visuals-container {
     width: 90%;
     margin: auto;
-    padding-top: 2em;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 .visual {
+    margin-top: 2em;
     border: 1em;
     border-radius: 25px;
     border-color: '#17BACA';
@@ -61,4 +61,37 @@
 
 label {
     padding-top: 2em;
+}
+
+.license-details-panel {
+    width: 90%;
+    margin: auto;
+    padding-top: 2em;
+}
+
+.license-details-title {
+    margin:auto; 
+    text-align: center; 
+    padding-bottom: 1em;
+}
+
+.expired-green {
+    background-color: green;
+}
+
+.expired-amber {
+    background-color: rgb(214, 211, 36);
+}
+
+.expired-red {
+    background-color: rgb(255, 8, 0);
+}
+
+.detail-assign {
+    text-align: center;
+}
+
+.export-btn {
+    text-align: center;
+    padding-bottom: 1em;
 }
