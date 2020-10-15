@@ -38,7 +38,7 @@
         <td>Not Assigned</td>
       {% endif %}
       <td>{{ license.on_machine }}</td>
-      <td><a href="/"><img src="{% static 'dashboard/img/pencil.png' %}" alt="Pencil"></a></td>
+      <td><a href="/edit/{{ license.id }}"><img src="{% static 'dashboard/img/pencil.png' %}" alt="Pencil"></a></td>
       <td><a href="/delete/{{ license.id }}"><img src="{% static 'dashboard/img/trash.png' %}" alt="Trash"></a></td>
     </tr>
     {% endfor %}
@@ -54,8 +54,8 @@
         <td>Not Assigned</td>
       {% endif %}
       <td>{{ license.on_machine }}</td>
-      <td><a href="/"><img src="{% static 'dashboard/img/pencil.png' %}" alt="Pencil"></a></td>
-      <td><a href="/delete/{{ license_name.id }}"><img src="{% static 'dashboard/img/trash.png' %}" alt="Trash"></a></td>
+      <td><a href="/edit/{{ license.id }}"><img src="{% static 'dashboard/img/pencil.png' %}" alt="Pencil"></a></td>
+      <td><a href="/delete/{{ license.id }}"><img src="{% static 'dashboard/img/trash.png' %}" alt="Trash"></a></td>
     </tr>
     {% endfor %}
 
@@ -70,8 +70,8 @@
         <td>Not Assigned</td>
       {% endif %}
       <td>{{ license.on_machine }}</td>
-      <td><a href="/"><img src="{% static 'dashboard/img/pencil.png' %}" alt="Pencil"></a></td>
-      <td><a href="/delete/{{ license_name.id }}"><img src="{% static 'dashboard/img/trash.png' %}" alt="Trash"></a></td>
+      <td><a href="/edit/{{ license.id }}"><img src="{% static 'dashboard/img/pencil.png' %}" alt="Pencil"></a></td>
+      <td><a href="/delete/{{ license.id }}"><img src="{% static 'dashboard/img/trash.png' %}" alt="Trash"></a></td>
     </tr>
     {% endfor %}
   </tbody>

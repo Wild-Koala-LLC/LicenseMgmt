@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.http import HttpResponse
+from django.views.generic import DeleteView
+from django.contrib.messages.views import SuccessMessageMixin
 
 from .models import License, Soldier, Machine
 from .helper_funcs import *
@@ -18,10 +20,11 @@ def csv_view(request):
     return response
 
 
-def delete(request,license_id=None):
+def delete(request,license_id):
     to_delete = License.objects.get(id=license_id)
+    license_name = to_delete.name
     to_delete.delete()
-    return render(request,'/')
+    return redirect('license_details', license_name)
 
 # User Chart.js to make a pie chart with % of a type of license used vs. Not used
 def index(request):
@@ -61,7 +64,30 @@ def assign_licenses(request):
     context = {'form':form}
     return render(request, 'assign_licenses.html', context)
 
+def edit(request, license_id):
+    to_edit = License.objects.get(id=license_id)
+    redirect_name = to_edit.name
+    if request.method == 'POST':
+        form = LicenseForm(request.POST)
+        if form.is_valid():
+            print("EDITED LICENSE!==============================================")
+            print("================= Deleting Old License ====================")
+            to_edit.delete()
+            form.save()
+
+            return redirect('license_details', redirect_name)
+
+    form = LicenseForm(initial={'name': to_edit.name, 
+                                'key': to_edit.key, 
+                                'start_date': to_edit.start_date, 
+                                'end_date': to_edit.end_date,
+                                'on_machine': to_edit.on_machine})
+
+    context = {'form':form, 'to_edit':to_edit}
+    return render(request, 'edit_license.html', context)
+
 def license_details(request, wanted_license):
+    
     licenses = License.objects.filter(name=wanted_license)
     green, amber, red = classify_by_time(licenses)
     context = {'wanted_license':wanted_license, 'green':green, 'amber':amber, 'red':red}

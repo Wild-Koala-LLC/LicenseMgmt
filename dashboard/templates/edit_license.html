@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %} 
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/twiggy_style.css' %}">
+
+<div class="twiggy-form">
+    <div class="form-group">
+    <div>
+
+        <h3>Editing: {{to_edit.name}} ({{to_edit.key}})</h3>
+
+    </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <div class="container">
+                <button type="submit" class="btn btn-primary form-button">Submit</button>
+            </div>
+        </form>
+    </div>    
+</div>
+
+
+
+
+
+{% endblock %}

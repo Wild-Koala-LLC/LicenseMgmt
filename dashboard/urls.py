@@ -10,4 +10,5 @@ urlpatterns = [
     path('expiring', views.expiring, name='expiring'),  
     path('csv_view', views.csv_view, name='csv_view'),
     path('delete/<int:license_id>', views.delete, name='delete'),
+    path('edit/<int:license_id>', views.edit, name='edit'),
 ]
